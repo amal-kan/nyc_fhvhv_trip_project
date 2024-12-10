@@ -1,0 +1,570 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data ingested from the source system, including trip data and location details."
+    schema: raw
+    tables:
+      - name: taxi_zones
+        description: "Table containing detailed geographic and spatial information about taxi zones, including their shapes and physical boundaries. Used for mapping."
+        columns:
+          - name: LocationID
+            description: "Unique identifier for each taxi zone. Matches the LocationID in the taxi_zone_lookup table."
+            tests:
+              - not_null : 
+                  severity: warn
+              - unique :
+                  severity: warn
+          - name: borough
+            description: "The borough in which the taxi zone is located. Matches the Borough field in the taxi_zone_lookup table."
+            tests:
+              - not_null:
+                  severity: warn
+          - name: zone
+            description: "The name of the taxi zone, providing a geographic label. Matches the Zone field in the taxi_zone_lookup table."
+            tests:
+              - not_null:
+                  severity: warn
+          - name: Shape_Area
+            description: "The area of the taxi zone in square units."
+            tests:
+              - not_null:
+                  severity: warn
+          - name: the_geom
+            description: "The geometry column defining the geographic shape of the taxi zone, stored in spatial data format."
+            tests:
+              - not_null : 
+                  severity: warn
+      - name: fhvhv_tripdata_2024-01
+        description: "Raw trip data for January 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+
+      - name: fhvhv_tripdata_2024-02
+        description: "Raw trip data for February 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-03
+        description: "Raw trip data for March 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-04
+        description: "Raw trip data for April 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-05
+        description: "Raw trip data for May 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-06
+        description: "Raw trip data for June 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-07
+        description: "Raw trip data for Jully 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-08
+        description: "Raw trip data for August 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+      - name: fhvhv_tripdata_2024-09
+        description: "Raw trip data for September 2024, containing pickup and dropoff timestamps, locations, and trip metrics."
+        columns:
+          - name: pickup_datetime
+            description: "The timestamp of when the trip started."
+          - name: dropoff_datetime
+            description: "The timestamp of when the trip ended."
+          - name: trip_miles
+            description: "Distance of the trip in miles."
+          - name: trip_time
+            description: "The duration of the trip in seconds as captured in the raw data."
+          - name: "'PULocationID'"
+            description: "Location ID where the trip started (pickup)."
+          - name: "'DOLocationID'"
+            description: "Location ID where the trip ended (dropoff)."
+
+models:
+  - name: stg_zones
+    description: "Staging model for taxi zone data, applying minimal transformations and cleaning."
+    columns:
+      - name: location_id
+        description: "Unique identifier for each taxi zone, renamed from 'locationid'."
+        tests:
+          - not_null
+          - unique
+      - name: zone
+        description: "The name of the taxi zone, cleaned and transformed."
+        tests:
+          - not_null
+      - name: geometry
+        description: "The geographic shape of the taxi zone."
+        tests:
+          - not_null
+      - name: borough
+        description: "The borough in which the taxi zone is located."
+        tests:
+          - not_null
+      - name: shape_area
+        description: "The area of the geographic boundary for the location."
+        tests:
+          - not_null
+
+  - name: stg_trip_data
+    description: "Staging model combining raw trip data from multiple monthly tables and applying minimal transformations."
+    columns:
+      - name: pickup_datetime
+        description: "The timestamp of when the trip started."
+      - name: dropoff_datetime
+        description: "The timestamp of when the trip ended."
+      - name: trip_miles
+        description: "The distance of the trip in miles."
+        tests:  
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0.1
+              max_value: 500
+              severity: warn
+      - name: trip_time
+        description: "The duration of the trip in seconds."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              max_value: 86400
+              severity: warn
+      - name: pickup_location_id
+        description: "Foreign key referencing the pickup location."
+        tests:
+          - relationships:
+              to: "{{ target.schema }}_bronze.stg_zones"
+              field: location_id
+              severity: warn
+      - name: drop_location_id
+        description: "Foreign key referencing the dropoff location."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_bronze.stg_zones"
+              field: location_id
+              severity: warn
+
+  - name: silver_date_spine
+    description: "Intermediate model generating a date spine with additional temporal attributes for joins."
+    columns:
+      - name: date_day
+        description: "Base date column representing individual days."
+      - name: year
+        description: "Year extracted from the base date."
+      - name: month
+      - name: day
+        description: "Day of the month extracted from the base date."
+      - name: day_of_week
+        description: "Day of the week extracted from the base date (0 = Sunday, 6 = Saturday)."
+      - name: is_weekend
+        description: "Flag indicating whether the date falls on a weekend."
+      - name: quarter
+        description: "Quarter of the year extracted from the base date."
+      - name: week_of_year
+        description: "Week of the year extracted from the base date."
+ 
+  - name: silver_location_details
+    description: "Intermediate model merging location data and resolving conflicts between taxi zone files."
+    columns:
+      - name: location_id
+        description: "Unique identifier for the location."
+        tests:
+          - not_null
+          - unique
+      - name: borough
+        description: "The resolved borough for the location after merging and conflict resolution."
+        tests:
+          - not_null
+      - name: zone
+        description: "The resolved zone name for the location after merging and conflict resolution."
+        tests:
+          - not_null
+      - name: geometry
+        description: "The geometric representation of the location's spatial boundary."
+        tests:
+          - not_null
+      - name: shape_area
+        description: "The area of the geographic boundary for the location."
+        tests:
+          - not_null
+
+  - name: silver_trip_cleaned
+    description: "Intermediate model cleaning and validating trip data from the staging layer."
+    columns:
+      - name: pickup_datetime
+        description: "The timestamp when the trip started."
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: "The timestamp when the trip ended."
+        tests:
+          - not_null
+      - name: trip_duration_seconds
+        description: "The calculated duration of the trip in seconds."
+        tests:
+          - not_null
+      - name: validated_trip_miles
+        description: "The validated distance of the trip in miles, filtered to a valid range."
+        tests:
+          - not_null
+      - name: pickup_location_id
+        description: "Foreign key referencing the pickup location."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_silver.silver_location_details"
+              field: location_id
+              severity: warn
+      - name: drop_location_id
+        description: "Foreign key referencing the dropoff location."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_silver.silver_location_details"
+              field: location_id
+              severity: warn
+
+  - name: date_dimension
+    description: "Dimension table providing detailed temporal attributes for analysis."
+    columns:
+      - name: date_key
+        description: "Surrogate key for the date dimension."
+        tests:
+          - not_null
+          - unique
+      - name: date_day
+        description: "Base date column representing individual days."
+        tests:
+          - unique
+      - name: year
+        description: "Year extracted from the base date."
+      - name: month
+        description: "Month extracted from the base date."
+      - name: day
+        description: "Day of the month extracted from the base date."
+      - name: is_weekend
+        description: "Flag indicating whether the date falls on a weekend."
+
+  - name: location_dimension
+    description: "Dimension table containing geographic and spatial information about pickup and dropoff locations."
+    columns:
+      - name: location_dim_id
+        description: "Surrogate key for the location dimension."
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: "Original location ID from the raw data."
+      - name: borough
+        description: "Borough associated with the location."
+        tests:
+          - not_null
+      - name: zone
+        description: "Name of the taxi zone associated with the location."
+        tests:
+          - not_null
+      - name: shape_area
+        description: "The area of the geographic boundary for the location."
+        tests:
+          - not_null:
+              severity: warn
+      - name: geometry
+        description: "The geometric representation of the location's spatial boundary."
+        tests:
+          - not_null:
+              severity: warn
+
+  - name: trip_dimension
+    description: "Dimension table containing detailed trip attributes for analysis."
+    columns:
+      - name: trip_id
+        description: "Unique identifier for the trip from the raw data."
+        tests:
+          - not_null
+          - unique
+      - name: pickup_datetime
+        description: "The timestamp when the trip started."
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: "The timestamp when the trip ended."
+        tests:
+          - not_null
+      - name: trip_duration_seconds
+        description: "Duration of the trip in seconds."
+        tests:
+          - not_null
+      - name: validated_trip_miles
+        description: "Validated trip distance in miles."
+        tests:
+          - not_null
+      - name: pickup_location_id
+        description: "Foreign key referencing the pickup location dimension."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_gold.location_dimension"
+              field: location_id
+              severity: warn
+      - name: drop_location_id
+        description: "Foreign key referencing the dropoff location dimension."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_gold.location_dimension"
+              field: location_id
+              severity: warn
+  
+  - name: all_data_trips
+    description: "Fact table containing trip metrics and relationships to dimensions."
+    columns:
+      - name: fact_trip_id
+        description: "Surrogate key for the fact table."
+        tests:
+          - not_null
+          - unique
+      - name: trip_id
+        description: "Unique identifier for the trip from the raw data."
+        tests:
+          - not_null
+          - unique
+      - name: pickup_date_id
+        description: "Foreign key referencing the date of the pickup."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_gold.date_dimension"
+              field: date_key
+      - name: dropoff_date_id
+        description: "Foreign key referencing the date of the dropoff."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_gold.date_dimension"
+              field: date_key
+      - name: pickup_location_dim_id
+        description: "Foreign key referencing the pickup location dimension."
+        tests:
+          - not_null:
+              severity: warn
+          - relationships:
+              to: "{{ target.schema }}_gold.location_dimension"
+              field: location_dim_id
+      - name: dropoff_location_dim_id
+        description: "Foreign key referencing the dropoff location dimension."
+        tests:
+          - not_null:
+              severity: warn
+          - relationships:
+              to: "{{ target.schema }}_gold.location_dimension"
+              field: location_dim_id
+      - name: trip_duration_seconds
+        description: "Duration of the trip in seconds."
+        tests:
+          - not_null
+      - name: validated_trip_miles
+        description: "Validated trip distance in miles."
+        tests:
+          - not_null
+
+  - name: gold_monthly_trip_metrics
+    description: "Gold layer model providing monthly trip counts and growth metrics."
+    columns:
+      - name: trip_month
+        description: "Month for the trip aggregation."
+        tests:
+          - not_null
+      - name: trip_count
+        description: "Total number of trips in the month."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+      - name: cumulative_trip_count
+        description: "Cumulative total number of trips up to this month."
+        tests:
+          - not_null
+
+  - name: gold_top_pickup_locations
+    description: "Gold layer model identifying the top 5 busiest pickup locations."
+    columns:
+      - name: pickup_zone
+        description: "Zone of the pickup location."
+        tests:
+          - not_null
+      - name: pickup_borough
+        description: "Borough of the pickup location."
+        tests:
+          - not_null
+      - name: trip_count
+        description: "Number of trips from this location."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+      - name: rank
+        description: "Rank of the location by trip count."
+        tests:
+          - not_null
+
+  - name: gold_duration_distance_analysis
+    description: "Gold layer model analyzing trip duration and distance by time of day."
+    columns:
+      - name: time_of_day
+        description: "Time of day category (e.g., Morning, Afternoon, Night)."
+        tests:
+          - not_null
+      - name: avg_trip_duration
+        description: "Average trip duration in seconds for this time of day."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+      - name: avg_trip_distance
+        description: "Average trip distance in miles for this time of day."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+  - name: all_trips
+    description: "Fact table containing trip metrics and relationships to dimensions."
+    columns:
+      - name: fact_trip_id
+        description: "Surrogate key for the fact table."
+        tests:
+          - not_null
+          - unique
+      - name: trip_id
+        description: "Unique identifier for the trip from the raw data."
+        tests:
+          - not_null
+          - unique
+      - name: pickup_date_id
+        description: "Foreign key referencing the date of the pickup."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_gold.date_dimension"
+              field: date_key
+      - name: dropoff_date_id
+        description: "Foreign key referencing the date of the dropoff."
+        tests:
+          - not_null
+          - relationships:
+              to: "{{ target.schema }}_gold.date_dimension"
+              field: date_key
+      - name: pickup_location_dim_id
+        description: "Foreign key referencing the pickup location dimension."
+        tests:
+          - not_null:
+              severity: warn
+          - relationships:
+              to: "{{ target.schema }}_gold.location_dimension"
+              field: location_dim_id
+      - name: dropoff_location_dim_id
+        description: "Foreign key referencing the dropoff location dimension."
+        tests:
+          - not_null:
+              severity: warn
+          - relationships:
+              to: "{{ target.schema }}_gold.location_dimension"
+              field: location_dim_id
+      - name: trip_duration_seconds
+        description: "Duration of the trip in seconds."
+        tests:
+          - not_null
+      - name: validated_trip_miles
+        description: "Validated trip distance in miles."
+        tests:
+          - not_null

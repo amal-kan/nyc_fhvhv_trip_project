@@ -1,0 +1,22 @@
+version: 2
+
+seeds:
+  - name: taxi_zone_lookup
+    description: "Lookup table containing high-level taxi zone information, including associated boroughs and service zones. Used for geographic analysis and joins with trip data."
+    columns:
+      - name: "'LocationID'"
+        description: "Unique identifier for each taxi zone. Primary key and used for joins with other datasets, such as trip data."
+        tests:
+          - not_null
+      - name: "'Borough'"
+        description: "The borough in which the taxi zone is located. Examples include Manhattan, Queens, Brooklyn, Bronx, and Staten Island."
+        tests:
+          - not_null:
+              severity: warn
+      - name: "'Zone'"
+        description: "The name of the taxi zone, providing a granular geographic label."
+        tests:
+          - not_null:
+              severity: warn
+
+ 
